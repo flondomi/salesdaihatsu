@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viana Daihatsu Makassar — Sales Resmi Daihatsu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e63946;
+            --secondary: #f4a261;
+            --dark: #1a1a2e;
+            --gray-900: #212121;
+            --gray-800: #2d2d2d;
+            --gray-700: #3a3a3a;
+            --gray-600: #4a4a4a;
+            --gray-500: #6b6b6b;
+            --gray-400: #8a8a8a;
+            --gray-300: #b0b0b0;
+            --gray-200: #d4d4d4;
+            --gray-100: #e8e8e8;
+            --white: #ffffff;
+            --accent-glow: rgba(230, 57, 70, 0.3);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gray-900);
+            color: var(--gray-200);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px var(--accent-glow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--gray-900) 0%, #16213e 50%, var(--gray-900) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(244, 162, 97, 0.15) 0%, transparent 70%);
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 30px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 57, 70, 0.15);
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            line-height: 1.7;
+            margin-bottom: 35px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px var(--accent-glow);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(230, 57, 70, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease 0.4s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .hero-car-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--gray-800), var(--gray-700));
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-car-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.5), transparent);
+        }
+
+        .hero-car-placeholder i {
+            font-size: 80px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .hero-car-placeholder span {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(42, 42, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 18px 22px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card.card-1 {
+            bottom: -20px;
+            left: -30px;
+        }
+
+        .floating-card.card-2 {
+            top: -20px;
+            right: -20px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card .card-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .floating-card .card-label {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== PROMO BANNER ===== */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--primary), #c0392b);
+            padding: 20px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(50%); }
+        }
+
+        .promo-banner p {
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .promo-banner i {
+            margin: 0 8px;
+            animation: blink 1s infinite;
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            background: var(--gray-800);
+            padding: 60px 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-5px);
+            border-color: rgba(230, 57, 70, 0.3);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.05));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* ===== KEUNGGULAN ===== */
+        .features {
+            padding: 100px 30px;
+            background: var(--gray-900);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--primary);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: var(--gray-400);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--gray-800);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(230, 57, 70, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.15), rgba(230, 57, 70, 0.05));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products {
+            padding: 100px 30px;
+            background: var(--gray-800);
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--gray-700);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border-color: rgba(230, 57, 70, 0.3);
+        }
+
+        .product-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--gray-600), var(--gray-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image i {
+            font-size: 60px;
+            color: var(--gray-500);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-info .product-type {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        .product-price .price-label {
+            color: var(--gray-400);
+            font-size: 0.8rem;
+        }
+
+        .product-price .price-value {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .product-installment {
+            color: var(--gray-300);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .product-installment strong {
+            color: var(--white);
+        }
+
+        .product-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-btn:hover {
+            box-shadow: 0 8px 25px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PROMO SECTION ===== */
+        .promo-section {
+            padding: 100px 30px;
+            background: var(--gray-900);
+            position: relative;
+        }
+
+        .promo-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .promo-card {
+            background: linear-gradient(135deg, var(--gray-800), var(--gray-700));
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent-glow), transparent);
+            opacity: 0.3;
+        }
+
+        .promo-card .promo-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .promo-card h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .promo-card p {
+            color: var(--gray-400);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .promo-card .promo-highlight {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* ===== PROCESS / TIMELINE ===== */
+        .process {
+            padding: 100px 30px;
+            background: var(--gray-800);
+        }
+
+        .process-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .process-step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, var(--primary), #ff6b6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 5px 20px var(--accent-glow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            background: var(--gray-700);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px 30px;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        .step-content:hover {
+            border-color: rgba(230, 57, 70, 0.2);
+            transform: translateX(5px);
+        }
+
+        .step-content h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 30px;
+            background: var(--gray-900);
+        }
+
+        .testimonial-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--gray-800);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(230, 57, 70, 0.2);
+        }
+
+        .testimonial-stars {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .author-info h4 {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .author-info span {
+            color: var(--gray-500);
+            font-size: 0.8rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 30px;
+            background: linear-gradient(135deg, var(--gray-800), #16213e);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow), transparent);
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .cta-content p {
+            color: var(--gray-400);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-call {
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+
+        .btn-call:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            padding: 60px 30px 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 25px;
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            animation: bounce 2s infinite;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .features-grid,
+            .products-grid,
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(26, 26, 46, 0.98);
+                flex-direction: column;
+                padding: 20px 30px;
+                gap: 15px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid,
+            .products-grid,
+            .testimonial-grid,
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fas fa-car"></i></div>
+                <div class="logo-text">Viana<span>Daihatsu</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#promo">Promo</a></li>
+                <li><a href="#proses">Proses</a></li>
+                <li><a href="#kontak" class="nav-cta">Hubungi Saya</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i> PROMO TERBATAS — MAKASSAR & SEKITARNYA
+                </div>
+                <h1 class="hero-title">
+                    Wujudkan Impian Anda<br>
+                    Memiliki Mobil <span class="highlight">Daihatsu</span> Impian
+                </h1>
+                <p class="hero-subtitle">
+                    Sales Resmi Daihatsu Makassar. DP ringan mulai Rp 5 Juta, cicilan mulai Rp 2 jutaan/bulan. Proses cepat 1–2 hari langsung ACC!
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20promo%20Daihatsu" class="btn-primary">
+                        <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                    </a>
+                    <a href="#produk" class="btn-secondary">
+                        <i class="fas fa-car-side"></i> Lihat Produk
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-car-placeholder">
+                    <i class="fas fa-car-side"></i>
+                    <span>Daihatsu All New Terios / Rocky</span>
+                </div>
+                <div class="floating-card card-1">
+                    <div class="card-value">Rp 5 Jt</div>
+                    <div class="card-label">DP Mulai Dari</div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-value">1–2 Hari</div>
+                    <div class="card-label">Proses Cepat</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner">
+        <p><i class="fas fa-fire"></i> BERLAKU TERBATAS — STOK TERBATAS! Harga Resmi Termurah Langsung Dealer Resmi Daihatsu <i class="fas fa-fire"></i></p>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item reveal">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Pelanggan Puas</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-icon"><i class="fas fa-car"></i></div>
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Model Tersedia</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-number">1-2</div>
+                <div class="stat-label">Hari Proses ACC</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Rating Kepuasan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="features" id="keunggulan">
+        <div class="section-header reveal">
+            <div class="section-tag">MENGAPA MEMILIH KAMI</div>
+            <h2 class="section-title">Keunggulan Beli di Viana Daihatsu</h2>
+            <p class="section-subtitle">Layanan terbaik dengan harga termurah langsung dari dealer resmi Daihatsu Makassar</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                <h3>Harga Resmi Termurah</h3>
+                <p>Dapatkan harga terbaik langsung dari dealer resmi Daihatsu. Tanpa biaya tersembunyi, transparan dan terpercaya.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>DP Super Ringan</h3>
+                <p>Cukup DP mulai Rp 5 Juta saja, Anda sudah bisa membawa pulang mobil Daihatsu impian Anda.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Cicilan Terjangkau</h3>
+                <p>Cicilan mulai Rp 2 jutaan per bulan dengan tenor fleksibel hingga 8 tahun. Sesuai budget Anda.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Proses Super Cepat</h3>
+                <p>Proses kredit hanya 1–2 hari selesai! Berkas dibantu sampai ACC oleh tim profesional kami.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Bantuan Berkas Kredit</h3>
+                <p>Tim kami akan membantu seluruh proses administrasi dan berkas kredit Anda sampai disetujui.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                <h3>Layanan After Sales</h3>
+                <p>Layanan purna jual terbaik, konsultasi gratis, dan dukungan penuh setelah pembelian unit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products" id="produk">
+        <div class="section-header reveal">
+            <div class="section-tag">PRODUK KAMI</div>
+            <h2 class="section-title">Pilihan Mobil Daihatsu Terbaik</h2>
+            <p class="section-subtitle">Temukan mobil Daihatsu sesuai kebutuhan dan budget Anda</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-car-side"></i>
+                    <span class="product-badge">BEST SELLER</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Rocky</h3>
+                    <p class="product-type">Compact SUV</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 2 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Rocky" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-car"></i>
+                    <span class="product-badge">POPULER</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Terios</h3>
+                    <p class="product-type">SUV 7 Seater</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 3 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Terios" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-shuttle-van"></i>
+                    <span class="product-badge">BARU</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Xenia</h3>
+                    <p class="product-type">Low MPV</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 2 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Xenia" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-truck-pickup"></i>
+                    <span class="product-badge">PROMO</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Gran Max</h3>
+                    <p class="product-type">Commercial Vehicle</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 2 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Gran%20Max" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-car-side"></i>
+                    <span class="product-badge">HEMAT</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Ayla</h3>
+                    <p class="product-type">City Car</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 1 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Ayla" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-image">
+                    <i class="fas fa-car"></i>
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <h3>Daihatsu Sigra</h3>
+                    <p class="product-type">Low MPV</p>
+                    <div class="product-price">
+                        <span class="price-label">DP Mulai</span>
+                        <span class="price-value">Rp 5 Jt</span>
+                    </div>
+                    <p class="product-installment">Cicilan <strong>Rp 2 Jutaan</strong>/bln</p>
+                    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20Daihatsu%20Sigra" class="product-btn">
+                        <i class="fab fa-whatsapp"></i> Tanya Harga
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo-section" id="promo">
+        <div class="section-header reveal">
+            <div class="section-tag">💥 PROMO SPESIAL</div>
+            <h2 class="section-title">Promo Khusus Makassar & Sekitarnya</h2>
+            <p class="section-subtitle">Jangan lewatkan kesempatan emas ini! Stok terbatas, segera hubungi kami.</p>
+        </div>
+        <div class="promo-grid">
+            <div class="promo-card reveal">
+                <div class="promo-icon">💰</div>
+                <h3>DP Super Ringan</h3>
+                <p>Bawa pulang mobil Daihatsu impian Anda cukup dengan DP ringan</p>
+                <span class="promo-highlight">Mulai Rp 5 Juta</span>
+            </div>
+            <div class="promo-card reveal">
+                <div class="promo-icon">📉</div>
+                <h3>Cicilan Terjangkau</h3>
+                <p>Nikmati cicilan ringan yang sesuai dengan budget bulanan Anda</p>
+                <span class="promo-highlight">Mulai Rp 2 Jt/Bulan</span>
+            </div>
+            <div class="promo-card reveal">
+                <div class="promo-icon">⚡</div>
+                <h3>Proses Kilat</h3>
+                <p>Proses kredit super cepat, berkas dibantu sampai ACC oleh tim kami</p>
+                <span class="promo-highlight">1–2 Hari Selesai</span>
+            </div>
+            <div class="promo-card reveal">
+                <div class="promo-icon">🎯</div>
+                <h3>Tenor Fleksibel</h3>
+                <p>Pilih tenor cicilan yang paling nyaman untuk Anda, hingga maksimal</p>
+                <span class="promo-highlight">Hingga 8 Tahun</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="proses">
+        <div class="section-header reveal">
+            <div class="section-tag">CARA PEMBELIAN</div>
+            <h2 class="section-title">Proses Mudah & Cepat</h2>
+            <p class="section-subtitle">Hanya 4 langkah mudah untuk memiliki mobil Daihatsu impian Anda</p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-step reveal">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>📞 Hubungi Viana</h3>
+                    <p>Chat via WhatsApp atau telepon langsung. Konsultasikan pilihan mobil dan skema kredit yang sesuai kebutuhan Anda.</p>
+                </div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>📋 Siapkan Berkas</h3>
+                    <p>Tim kami akan membantu Anda menyiapkan seluruh berkas yang diperlukan. Proses mudah dan dibantu sampai lengkap.</p>
+                </div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>✅ Proses ACC Kredit</h3>
+                    <p>Berkas langsung diproses ke leasing. Dalam waktu 1–2 hari, kredit Anda sudah disetujui (ACC).</p>
+                </div>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>🚗 Mobil Siap Diambil!</h3>
+                    <p>Selamat! Mobil Daihatsu impian Anda siap dibawa pulang. Viana akan mendampingi sampai serah terima unit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-header reveal">
+            <div class="section-tag">TESTIMONI</div>
+            <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+            <p class="section-subtitle">Kepuasan pelanggan adalah prioritas utama kami</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Prosesnya cepat banget! Baru chat pagi, sore sudah ACC. Mbak Viana sangat membantu dari awal sampai mobil di tangan. Recommended!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div class="author-info">
+                        <h4>Ahmad Fauzi</h4>
+                        <span>Pembeli Daihatsu Rocky</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"DP-nya ringan, cicilannya juga affordable. Saya beli Xenia untuk keluarga, alhamdulillah prosesnya gampang banget. Terima kasih Mbak Viana!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">S</div>
+                    <div class="author-info">
+                        <h4>Siti Rahma</h4>
+                        <span>Pembeli Daihatsu Xenia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Pelayanannya luar biasa! Dijawab cepat, dibantu sampai ACC. Harga juga paling murah dibanding dealer lain. Pasti recommend ke teman-teman."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">B</div>
+                    <div class="author-info">
+                        <h4>Budi Santoso</h4>
+                        <span>Pembeli Daihatsu Terios</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="kontak">
+        <div class="cta-content reveal">
+            <h2>Siap Punya Mobil Daihatsu Impian?</h2>
+            <p>Hubungi Viana sekarang juga! Konsultasi GRATIS, proses cepat, harga termurah se-Makassar.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20promo%20Daihatsu%20Makassar" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
+                </a>
+                <a href="tel:087862438629" class="btn-call">
+                    <i class="fas fa-phone"></i> 0878-6243-8629
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-car"></i></div>
+                    <div class="logo-text">Viana<span>Daihatsu</span></div>
+                </a>
+                <p>Sales Resmi Daihatsu Makassar. Melayani penjualan mobil Daihatsu baru dengan harga termurah, proses cepat, dan layanan terbaik.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/6287862438629"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Produk</h4>
+                <ul>
+                    <li><a href="#">Daihatsu Rocky</a></li>
+                    <li><a href="#">Daihatsu Terios</a></li>
+                    <li><a href="#">Daihatsu Xenia</a></li>
+                    <li><a href="#">Daihatsu Sigra</a></li>
+                    <li><a href="#">Daihatsu Ayla</a></li>
+                    <li><a href="#">Daihatsu Gran Max</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Kredit Mobil Baru</a></li>
+                    <li><a href="#">Simulasi Cicilan</a></li>
+                    <li><a href="#">Trade-In</a></li>
+                    <li><a href="#">Test Drive</a></li>
+                    <li><a href="#">After Sales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li><a href="tel:087862438629"><i class="fas fa-phone"></i> 0878-6243-8629</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Jl. Tun Abdul Razak, Makassar</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 17.00</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Viana Daihatsu Makassar. All Rights Reserved. | Sales Resmi Dealer Daihatsu</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6287862438629?text=Halo%20Viana%2C%20saya%20tertarik%20dengan%20promo%20Daihatsu" class="float-wa" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile nav toggle
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.innerText;
+                if (target.includes('+') || target.includes('.') || target.includes('-')) return;
+                const num = parseInt(target);
+                let current = 0;
+                const increment = num / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= num) {
+                        counter.innerText = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = Math.ceil(current);
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
+    </script>
+
+</body>
+</html>
